@@ -14,13 +14,13 @@ datasource db {
 
 // comando para criar as tabelas 
 // npx prisma migrate dev
-model Notifications {
+model Notification {
   id          String    @id
-  recipientID String
+  recipientId String
   content     String
   category    String
   readAt      DateTime?
   createdAt   DateTime  @default(now())
 
-  @@index([recipientID])
+  @@index([recipientId])
 }
