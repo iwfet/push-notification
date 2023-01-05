@@ -21,12 +21,14 @@ export class SendNotification {
     request: SendNotificationRequest,
   ): Promise<SendNotificationResponse> {
     const { recipientId, content, category } = request;
-
+  
     const notification = new Notification({
       recipientId,
       content: new Content(content),
       category,
     });
+    
+    
     await this.notificationRepository.create(notification);
     return { notification };
   }

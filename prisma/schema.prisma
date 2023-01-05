@@ -10,16 +10,15 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
-
 // comando para criar as tabelas 
 // npx prisma migrate dev
-model Notification {
+model notification {
   id          String    @id
   recipientId String
   content     String
   category    String
   readAt      DateTime?
+  canceledAt  DateTime?
   createdAt   DateTime  @default(now())
 
   @@index([recipientId])
